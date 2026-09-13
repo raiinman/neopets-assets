@@ -1,0 +1,19 @@
+PRODUCTION ASSET
+Path: assets/lookup-skin-v3.jpg
+Hosted URL: https://raiinman.github.io/neopets-assets/geneticfreakme/lookup-skin-v3.jpg
+Dimensions: 1000x1500
+Format: JPEG, sRGB
+Size: 298379 bytes
+SHA-256: 7deddca560cee3b654e0622850cd540b6f4998c6854ec5a4a1d45f5f6b449d2a
+
+SOURCE ARTWORK
+Path: assets/lookup-skin-v3-source.png
+Dimensions: 1024x1536
+Format: PNG
+SHA-256: 8d45d20e9a73135cc3ea7958bb6db4ac2c1dcac944fdf86c593044212e73a5c3
+
+HOSTING
+Repository: https://github.com/raiinman/neopets-assets
+Branch: main
+Pages source: / (root)
+HTTPS: enforced by GitHub Pages

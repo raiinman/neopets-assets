@@ -4,15 +4,16 @@ Production package for the `geneticfreakme` User Lookup, completed September 13,
 
 ## Files
 
-- `userlookup-final.html` — paste-ready Neopets HTML/CSS (4,335 characters; 665 characters below the editor limit).
+- `userlookup-final.html` — paste-ready V3 Neopets HTML/CSS (4,295 source characters).
 - `backup-original-2026-09-13.html` — the lookup code that was present before this redesign.
-- `assets/archive-hero.jpg` — production hero image, exactly 1000 × 300 px.
-- `assets/archive-hero-source.png` — full-resolution generated source artwork.
+- `assets/lookup-skin-v3.jpg` — production full-page background, exactly 1000 × 1500 px.
+- `assets/lookup-skin-v3-source.png` — full-resolution 1024 × 1536 source artwork.
+- `assets/lookup-skin-v2.jpg` — previous approved full-page background without the faerie tableau.
 - `FILTER-RESEARCH-2026.md` — the tested compatibility record and source links.
 
 ## Hosted production asset
 
-`https://raiinman.github.io/neopets-assets/geneticfreakme/archive-hero-1000x300.jpg`
+`https://raiinman.github.io/neopets-assets/geneticfreakme/lookup-skin-v3.jpg`
 
 The public source repository is `https://github.com/raiinman/neopets-assets`. GitHub Pages publishes from `main` at the repository root, with HTTPS enforced. Do not rename the repository, move the file, change its letter case, make the repository private, or disable Pages unless the URL in `userlookup-final.html` is changed too.
 
@@ -32,4 +33,4 @@ Paste the entire contents of `backup-original-2026-09-13.html` into the same fie
 
 The page deliberately uses conservative, old-school CSS: absolute positioning for the main composition, floats for the collection rail, and table/table-cell display for the pet strip. There is no JavaScript, CSS Grid, Flexbox, transform, web font, SVG, embedded data URL, or dependency on a third-party stylesheet.
 
-The trophy section is the visual and spatial priority. Its internal vertical scroll is intentional: the live trophy table is roughly four thousand pixels tall, so displaying it unbounded would turn the whole lookup into a five-screen hallway. The 1,075 px vault keeps trophies dominant without crushing the rest of the profile.
+The trophy section is the visual and spatial priority. Its internal vertical scroll is intentional. Fyora, Illusen, and Jhudora are painted full-length into the lower-right architectural bay without covering any live Neopets module.
