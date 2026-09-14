@@ -6,41 +6,47 @@
 - GitHub Pages: deployed successfully from `main` / root
 - HTTPS: enforced
 - Production asset response: image document
-- Browser-reported asset dimensions: 1000 × 1500
+- Browser-reported asset dimensions: 1280 × 3500
+- Production JPEG size: 744,292 bytes
+- Production JPEG SHA-256: `4561ed62b72c7f25707efea93f3ca7e665a533413dfaf1c6fdc56fbe7c40bf90`
 
 ## Neopets Preview Lookup
 
-- Submitted V3 source length: 4,178 characters
-- Sanitizer `-blocked-` tokens: 0
-- Full-page V3 background: retained and visibly rendered
-- Main canvas: 1000 × 1500 px
-- Trophy viewport: 615 px client width and 615 px scroll width; no horizontal spill
-- Trophy viewport height: 512 px; vertical scroll retained for the live trophy table
-- Collections viewport: 290 × 268 px with no overflow
-- Shop viewport: 280 × 174 px with no overflow; native image constrained to 58 × 58 px
+- Submitted V5 source length: 4,276 characters
+- Sanitizer blocked tokens: 0
+- Full-page V5 background: retained and visibly rendered
+- Main canvas: 1280 × 3500 px inside a measured 1348px lookup viewport
+- Base text: 14px Georgia
+- Trophy viewport: 1164 × 640 px; vertical scroll retained with no horizontal spill
+- Trophy images: 188 live images at 74px width
+- User Info viewport: 620 × 370 px with no overflow
+- Shop/Gallery viewport: 620 × 360 px with no overflow
+- Collections viewport: 1184 × 270 px with no overflow; seven entries in a four-column float layout
+- Pet viewport: 1184 × 540 px with no overflow
 - Visible pets: 9
 - Visible carousel clones: 0
-- CSS Grid: absent
+- CSS Grid: absent from custom source
 - CSS Flexbox: absent
 - CSS transform: absent
+
+The first V5 Preview exposed Neopets' built-in two-column Grid rule for `.ul-collections`, which made the collection content 460px tall. The production code explicitly restores the intended four-column float layout with `.ul-collections{display:block!important}`; the final measured scroll height equals the 270px viewport height.
 
 The hosted browser could not fetch Neopets' own `pets.neopets.com` thumbnail images during QA, so the nine pet image boxes displayed broken-image placeholders there. Pet names, species, ages, levels, links, count, and layout all rendered. This is an environment/network limitation affecting Neopets' asset host, not the custom GitHub Pages asset or the lookup CSS.
 
 ## Live publication
 
-- Neopets **Save Changes**: accepted for V3
-- Stored description length after Neopets formatting: 4,850 characters
+- Neopets **Save Changes**: accepted for V5
+- Stored description length after Neopets formatting: 4,276 characters
 - Fresh public lookup: verified at `https://www.neopets.com/userlookup.phtml?user=geneticfreakme`
-- Live sanitizer blocked tokens: 0
-- Live V3 skin: rendered from the production GitHub Pages URL
-- Full-length Fyora, Illusen, and Jhudora tableau: visible in the lower-right bay
+- Live V5 background URL: retained and rendered
+- Live main canvas: 1280 × 3500 px
+- Live User Info client/scroll size: 620 × 370 / 620 × 370 px
+- Live Shop client/scroll size: 620 × 360 / 620 × 360 px
+- Live Collections client/scroll size: 1184 × 270 / 1184 × 270 px
+- Live pet client/scroll size: 1184 × 540 / 1184 × 540 px
+- Live trophy client size: 1164 × 640 px; `overflow: auto` retained
 - Live visible pets: 9
 - Live visible carousel clones: 0
-- Live trophy client/scroll width: 615/615 px
-- Live trophy viewport/scroll height: 512/2,883 px with `overflow: auto` retained after reload
-- Live User Info client/scroll size: 280 × 278 / 280 × 278 px
-- Live Shop client/scroll size: 280 × 174 / 280 × 174 px
-- Live Collections client/scroll size: 290 × 268 / 290 × 268 px
-- Live pet-strip client/scroll size: 930 × 190 / 930 × 190 px
+- Live trophy images: 188
 
-Neopets Preview accepted the earlier scroll rule, but the first saved version expanded to 4,994 characters and lost that declaration. Compacting redundant CSS created enough post-formatting headroom; the final saved source retains the trophy scroll rule.
+Neopets may inject a site-controlled 728 × 90 advertisement over the welcome panel for non-Premium viewers. This does not change the saved CSS or module geometry.
