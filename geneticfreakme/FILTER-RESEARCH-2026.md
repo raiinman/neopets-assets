@@ -1,46 +1,49 @@
-# Neopets User Lookup filter research — September 13, 2026
+# Neopets User Lookup filter research — September 14, 2026
 
-## Primary and current references
+## Sources and verification method
 
-- Official Neopets HTML Guide: https://www.neopets.com/help/html_13.phtml
+- Official Neopets User Lookup HTML lesson: https://www.neopets.com/help/html_13.phtml
 - SunnyNeo User Lookups, updated December 21, 2025: https://www.sunnyneo.com/lookups.php
-- Jellyneo report on the March 2025 URL/image filter failure and April 1 fix: https://www.jellyneo.net/?go=comments&post=15265
+- SunnyNeo CSS Codes, including scroll-box examples using `overflow:auto`: https://www.sunnyneo.com/csscodes.php
+- Jellyneo report on Neopets' March 2025 URL/image-filter failure and April 1 fix: https://www.jellyneo.net/?go=comments&post=15265
 
-The official guide confirms that User Lookups can use a `<style>` block, fonts, online background images, pictures, tables, and links. It does not publish a complete sanitizer allowlist or an approved-host list. SunnyNeo's current premades therefore served as the practical compatibility baseline, followed by tests in the live `geneticfreakme` Preview Lookup.
+The official lesson confirms that the User Lookup Description accepts a `<style>` block, fonts, online background images, pictures, tables, and links. Neopets does not publish a complete sanitizer allowlist or an approved-host list. Current SunnyNeo code was therefore used as the community baseline, then every production declaration below was tested in the authenticated Preview Lookup, saved through the real Profile form, reloaded from the editor, and checked again on the public `geneticfreakme` lookup.
 
-## Live findings
+## What survived the September 2026 save sanitizer
 
-| Item | September 2026 result |
+| Area | Verified production behavior |
 |---|---|
-| Lookup Description limit | `maxlength=5000`; final code is 4,335 characters with 665 shown remaining |
-| HTML used successfully | `<style>`, `<div>`, `<a>`, `<span>`, `<h1>`, `<p>`, `<b>`, `<em>`, `<br>` |
-| Selector forms used successfully | element, class, ID, descendant, grouped selectors, `:hover`, `:visited` |
-| Layout used successfully | `position:absolute/relative/static`, pixel offsets and sizes, `float`, `display:block/table/table-cell/none`, `overflow:hidden/auto` |
-| Visual properties used successfully | hex colors, borders, backgrounds, padding, margins, text alignment, font shorthand with one family, letter spacing, line height, text decoration, text transform, visibility |
-| External asset | Public GitHub Pages JPEG accepted in CSS and retained by Preview Lookup |
-| HTTPS behavior | Neopets rewrites submitted external `https://` values to `http://`; the host must redirect/upgrade cleanly to HTTPS |
-| Rejected or stripped in testing | CSS `transform`; comma-separated font fallbacks; the slash form `center/cover`; `background-size` |
+| Description limit | The editor exposes `maxlength="5000"`. The final paste-ready source is 4,178 characters and Neopets stores it as 4,850 characters after reformatting. |
+| HTML tags used | `<style>`, `<div>`, `<a>`, `<span>`, `<h1>`, `<h2>`, `<p>`, `<b>`, and `<br>` |
+| Selectors used | Element, class, ID, descendant, direct-child (`>`), and grouped selectors |
+| Positioning/layout | `position:relative/absolute/static`, pixel offsets and dimensions, `float`, and `display:block/table/table-cell/none` |
+| Overflow | `overflow:hidden` and `overflow:auto`; the saved public trophy module retains a 512 px viewport over 2,883 px of content |
+| Typography/visuals | Font shorthand with one family, font size, line height, letter spacing, colors, borders, backgrounds, padding, margins, alignment, decoration, transform-to-uppercase, visibility, and `!important` |
+| External image URL | A public GitHub Pages JPEG in a CSS background was accepted, saved, and rendered on the public lookup |
+| HTTPS handling | Neopets rewrites the submitted GitHub Pages `https://` URL to `http://`; GitHub Pages redirects it back to HTTPS, so the asset still loads securely |
+| Rejected in testing | CSS `transform`, comma-separated font fallbacks, the background slash syntax (`center/cover`), and `background-size` |
 
-## Conservative compatibility decisions
+## Production-safe choices
 
-- The hero file is physically 1000 × 300 px, matching its box, because the filter strips `background-size`.
-- The declaration uses `background: color url(...) center no-repeat`, avoiding the rejected slash syntax.
-- Fonts use one family per declaration (`Georgia` or `Verdana`) because fallback commas were rewritten to `-blocked-`.
-- The page avoids CSS Grid and Flexbox. Current community examples consistently rely on positioning, floats, and table display, and those techniques passed the live preview.
-- The page avoids scripts, event handlers, forms, iframes, embedded objects, SVG, data URLs, custom properties, external stylesheets, and web fonts. They were unnecessary and were not treated as safe merely because modern browsers support them.
+- The single background render is physically 1000 × 1500 px, exactly matching the lookup canvas. It does not depend on `background-size`.
+- The code uses one external asset and an old-browser-compatible background shorthand.
+- The page uses absolute positioning for the painted composition, floats for Collections, and table/table-cell display for the nine-pet strip.
+- There is no JavaScript, CSS Grid, Flexbox, SVG, data URL, iframe, embedded object, form, custom property, external stylesheet, or web font.
+- The production host is a public GitHub Pages repository with HTTPS enabled. Changing the repository name, path, letter case, privacy, or Pages setting will break the lookup asset URL.
 
-Preview alone is not enough to certify the length. Neopets accepted a 4,961-character draft in Preview Lookup but rejected the real save because its internal formatter expanded that draft to 5,626 characters. The production source was reduced to 4,335 characters and then accepted by the real **Save Changes** flow.
+## Save-time length trap
 
-## Dimensions tested on the live account
+Preview Lookup is not sufficient to certify a build. Neopets expands compact CSS when it saves. A 4,318-character draft became 4,994 characters and silently lost the trophy module's `overflow:auto` declaration. After removing only redundant declarations, the final 4,178-character source stores at 4,850 characters and retains the scroll rule after a fresh editor reload.
 
-| Region | Dimensions |
-|---|---:|
-| Main canvas | 1000 × 2050 px |
-| Hero artwork | 1000 × 300 px |
-| User information | 450 × 265 px plus borders |
-| Shop | 259 × 265 px plus borders |
-| Collections rail | 255 × 1075 px plus borders |
-| Trophy vault | 724 × 1075 px plus borders |
-| Pet strip | 994 × 255 px plus borders |
+## Final live geometry
 
-Preview verification found nine visible pets and zero visible carousel clones. The trophy image width is capped at 74 px to prevent horizontal spill inside the vault.
+| Region | Client size | Scroll size | Overflow |
+|---|---:|---:|---|
+| Main canvas | 1000 × 1500 px | 1000 × 1500 px | hidden |
+| User Info | 280 × 278 px | 280 × 278 px | hidden; exact fit |
+| Shop/Gallery | 280 × 174 px | 280 × 174 px | hidden; exact fit |
+| Collections | 290 × 268 px | 290 × 268 px | hidden; exact fit |
+| Trophy Vault | 615 × 512 px | 615 × 2,883 px | auto; vertical scroll only |
+| Pet strip | 930 × 190 px | 930 × 190 px | hidden; all nine pets visible |
+
+The production background is 1000 × 1500 JPEG/sRGB. Trophy images are 54 px wide, the User Info shield is 38 px wide, the Shop/Gallery image is fixed at 58 × 58 px, and pet images are fixed at 70 × 70 px.
