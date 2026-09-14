@@ -1,10 +1,10 @@
 # geneticfreakme Neopets User Lookup
 
-Production package for the `geneticfreakme` User Lookup, completed September 13, 2026.
+Production package for the `geneticfreakme` User Lookup, completed September 14, 2026.
 
 ## Files
 
-- `userlookup-final.html` — paste-ready V3 Neopets HTML/CSS (4,295 source characters).
+- `userlookup-final.html` — paste-ready V3 Neopets HTML/CSS (4,178 source characters; 4,850 after Neopets reformats it).
 - `backup-original-2026-09-13.html` — the lookup code that was present before this redesign.
 - `assets/lookup-skin-v3.jpg` — production full-page background, exactly 1000 × 1500 px.
 - `assets/lookup-skin-v3-source.png` — full-resolution 1024 × 1536 source artwork.
@@ -34,3 +34,5 @@ Paste the entire contents of `backup-original-2026-09-13.html` into the same fie
 The page deliberately uses conservative, old-school CSS: absolute positioning for the main composition, floats for the collection rail, and table/table-cell display for the pet strip. There is no JavaScript, CSS Grid, Flexbox, transform, web font, SVG, embedded data URL, or dependency on a third-party stylesheet.
 
 The trophy section is the visual and spatial priority. Its internal vertical scroll is intentional. Fyora, Illusen, and Jhudora are painted full-length into the lower-right architectural bay without covering any live Neopets module.
+
+Keep the source compact. Neopets reformats saved CSS and enforces a 5,000-character description limit; expanding this version substantially can cause late declarations to disappear even when Preview accepts them.
