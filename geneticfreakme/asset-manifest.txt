@@ -1,20 +1,24 @@
-PRODUCTION ASSET
-Path: assets/lookup-skin-v5.jpg
-Hosted URL: https://raiinman.github.io/neopets-assets/geneticfreakme/lookup-skin-v5.jpg
-Dimensions: 1280x3500
+PRODUCTION HERO
+Path: geneticfreakme/lookup-hero-v6.jpg
+Hosted URL: https://raiinman.github.io/neopets-assets/geneticfreakme/lookup-hero-v6.jpg
+Dimensions: 1280x250
 Format: JPEG, sRGB
-Size: 744292 bytes
-SHA-256: 4561ed62b72c7f25707efea93f3ca7e665a533413dfaf1c6fdc56fbe7c40bf90
+Size: 156409 bytes
+SHA-256: b128952960a84c7fc500c082f542f490d848fd5b87759af5194c1c7caa4e4314
 
-SOURCE ARTWORK
-Path: assets/lookup-skin-v5-source.png
-Dimensions: 759x2073
-Format: PNG, RGB
-Size: 2313388 bytes
-SHA-256: c09b6adf637ef15c7e59397d272ed370e84e9cb1c6754a436a43545987b7d15f
+PROFILE CODE
+Path: geneticfreakme/lookup-v6.html
+Size: 5863 bytes
+SHA-256: 5626e67be5e87113a57f27cf61bae541426d197128ff8e8d460e04d647ad5614
 
-HOSTING
-Repository: https://github.com/raiinman/neopets-assets
-Branch: main
-Pages source: / (root)
-HTTPS: enforced by GitHub Pages
+ROLLBACK CODE
+Path: geneticfreakme/lookup-v5-backup.html
+Size: 4962 bytes
+SHA-256: dd2a1d6f395d10bab7283aff788ad77f42510e19783e2ccf64a1015c78706042
+
+LAYOUT CONTRACT
+- Full-width fixed-ratio hero. No non-proportional stretching.
+- Trophy module is the full-width centerpiece.
+- User Info, Collections, and Shop are equal-width columns.
+- Neopets module is full-width and secondary.
+- Live Neopets data remains native; the profile code only positions and styles it.
