@@ -8,8 +8,13 @@ SHA-256: b128952960a84c7fc500c082f542f490d848fd5b87759af5194c1c7caa4e4314
 
 PROFILE CODE
 Path: geneticfreakme/lookup-v6.html
-Size: 5863 bytes
-SHA-256: 5626e67be5e87113a57f27cf61bae541426d197128ff8e8d460e04d647ad5614
+Size: 3867 bytes
+SHA-256: c5c35e9f86e98bb26c56ff62418e0392c1e6385ea52cbdf10edbe481fb1086b1
+
+PASTE-READY PROFILE CODE
+Path: geneticfreakme/lookup-v6-production.html
+Size: 3867 bytes
+SHA-256: f93d72a30be0f663a163459441ffd230eb71cdd648ce6eb0afee7ff14a593a44
 
 ROLLBACK CODE
 Path: geneticfreakme/lookup-v5-backup.html
@@ -22,3 +27,4 @@ LAYOUT CONTRACT
 - User Info, Collections, and Shop are equal-width columns.
 - Neopets module is full-width and secondary.
 - Live Neopets data remains native; the profile code only positions and styles it.
+- Verified live on https://www.neopets.com/userlookup.phtml?user=geneticfreakme on 2026-09-15.
