@@ -1,7 +1,7 @@
 # neopets-assets
 
 <!-- project-header:start -->
-![Neopets Assets — A little personality for every page](https://capsule-render.vercel.app/api?type=waving&color=0%3ABE185D%2C100%3A6D28D9&height=170&section=header&text=Neopets%20Assets&fontSize=44&fontColor=FFFFFF&fontAlignY=40&desc=A%20little%20personality%20for%20every%20page&descSize=17&descAlignY=70)
+![Neopets Assets — A little personality for every page](https://capsule-render.vercel.app/api?type=waving&color=0%3ABE185D%2C100%3A6D28D9&height=170&section=header&text=Neopets%20Assets&fontSize=44&fontColor=FFFFFF&fontAlignY=28&desc=A%20little%20personality%20for%20every%20page&descSize=17&descAlignY=52)
 <!-- project-header:end -->
 
 <!-- project-badges:start -->
